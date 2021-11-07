@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,18 +18,19 @@ import com.iftm.moviecatalogservice.models.Rating;
 @RequestMapping("/catalog")
 public class CatalogResource {
 	
+	//o Bean informa que tem algum dado disponível e o Autowired informa que precisa desse dado
+	@Autowired
+	private RestTemplate restTemplate;
+	//o Autowired aqui informa ao Spring que em algum lugar (MovieCatalogServiceApplication)
+	//existe um BEAN desse RestTemplate e o inject precisa desse dado e é injetado aqui
+	
 	@RequestMapping("/{userId}")
 	public List<CatalogItem> getCAtalog(@PathVariable("userId") String userId){
-		
-		
-
-
-		RestTemplate restTemplate = new RestTemplate();
 
 		//1) Obter todos os movies IDs
 		List<Rating> ratings = Arrays.asList(
-				new Rating("12",5),
-				new Rating("15",2)
+				new Rating("12",15),
+				new Rating("15",20)
 			);
 
 		return ratings.stream().map(rating -> {
