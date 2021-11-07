@@ -16,7 +16,7 @@ public class CatalogResource {
 	@RequestMapping("/{userId}")
 	public List<CatalogItem> getCAtalog(@PathVariable("userId") String userId){
 		
-		return Collections.singletonList(new CatalogItem("Transformers", "Filme de Robô", 8));
+		return Collections.singletonList(new CatalogItem("Caça Fantasmas", "Filme de Gasparzinho", 8));
 				
 		
 	}
