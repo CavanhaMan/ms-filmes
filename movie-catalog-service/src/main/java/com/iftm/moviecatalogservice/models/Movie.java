@@ -1,4 +1,4 @@
-package com.iftm.movieinfoservice.model;
+package com.iftm.moviecatalogservice.models;
 
 public class Movie {
 
@@ -20,7 +20,6 @@ public class Movie {
 	public void setMovieId(String movieId) {this.movieId = movieId;}
 	public String getName() {return name;}
 	public void setName(String nome) {this.name = nome;}
-	
-	
+
 	
 }
