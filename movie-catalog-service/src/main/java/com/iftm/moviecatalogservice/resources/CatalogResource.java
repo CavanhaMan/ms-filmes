@@ -27,18 +27,16 @@ public class CatalogResource {
 	@RequestMapping("/{userId}")
 	public List<CatalogItem> getCAtalog(@PathVariable("userId") String userId){
 
-		//1) Obter todos os movies IDs
 		List<Rating> ratings = Arrays.asList(
 				new Rating("12",15),
 				new Rating("15",20)
 			);
 
 		return ratings.stream().map(rating -> {
-	    	//2) Para cada movid ID, chamar movie info service e get details
 			Movie movie = restTemplate.getForObject("http://localhost:8082/movies/" + rating.getMovieId(), Movie.class);
+			
 			return new CatalogItem(movie.getName(),"FILMAO",rating.getRating());
 		})
-				//3) Colocar tudo junto
 			.collect(Collectors.toList());
 		
 		
