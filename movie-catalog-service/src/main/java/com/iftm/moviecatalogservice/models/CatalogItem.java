@@ -20,7 +20,4 @@ public class CatalogItem {
 	public void setDesc(String desc) {this.desc = desc;}
 	public int getRating() {return rating;}
 	public void setRating(int rating) {this.rating = rating;}
-	
-	
-	
 }
